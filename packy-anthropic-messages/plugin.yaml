@@ -1,0 +1,5 @@
+name: packy-anthropic-messages-provider
+kind: model-provider
+version: 1.0.0
+description: PackyAPI — Anthropic Messages API relay
+author: packy

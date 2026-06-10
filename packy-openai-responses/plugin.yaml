@@ -1,0 +1,5 @@
+name: packy-openai-responses-provider
+kind: model-provider
+version: 1.0.0
+description: PackyAPI — OpenAI Responses API relay
+author: packy
