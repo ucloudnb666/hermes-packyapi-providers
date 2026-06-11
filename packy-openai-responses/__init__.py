@@ -49,6 +49,35 @@ packy_openai_responses = ProviderProfile(
 
 register_provider(packy_openai_responses)
 
+astraflow = ProviderProfile(
+    name="astraflow",
+    aliases=("ucloud-astraflow",),
+    api_mode="chat_completions",
+    env_vars=("ASTRAFLOW_API_KEY", "ASTRAFLOW_BASE_URL"),
+    base_url="https://api-us-ca.umodelverse.ai/v1",
+    auth_type="api_key",
+    display_name="Astraflow",
+    description="Astraflow by UCloud — OpenAI-compatible platform supporting 200+ models (global endpoint)",
+    signup_url="https://astraflow.ucloud-global.com",
+    supports_vision=True,
+)
+
+astraflow_cn = ProviderProfile(
+    name="astraflow-cn",
+    aliases=("ucloud-astraflow-cn",),
+    api_mode="chat_completions",
+    env_vars=("ASTRAFLOW_CN_API_KEY", "ASTRAFLOW_CN_BASE_URL"),
+    base_url="https://api.modelverse.cn/v1",
+    auth_type="api_key",
+    display_name="Astraflow (China)",
+    description="Astraflow by UCloud — OpenAI-compatible platform supporting 200+ models (China endpoint)",
+    signup_url="https://astraflow.ucloud.cn",
+    supports_vision=True,
+)
+
+register_provider(astraflow)
+register_provider(astraflow_cn)
+
 
 # ---------------------------------------------------------------------------
 # Runtime fix: Hermes 1.x does not read profile.api_mode for third-party

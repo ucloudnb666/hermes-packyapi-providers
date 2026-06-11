@@ -9,6 +9,13 @@
 
 两个插件都通过环境变量 `PACKY_API_KEY` 使用同一个 API key 鉴权。
 
+同时提供 Astraflow（UCloud 优刻得）的 OpenAI 兼容 provider：
+
+| Provider | `api_mode` | base_url |
+| --- | --- | --- |
+| `astraflow` | `chat_completions` | `https://api-us-ca.umodelverse.ai/v1` |
+| `astraflow-cn` | `chat_completions` | `https://api.modelverse.cn/v1` |
+
 ## 安装
 
 把两个目录复制（或软链接）到 Hermes 的插件目录，作为 user plugin 被自动发现（last-writer-wins，无需修改仓库）：
@@ -26,6 +33,9 @@ export PACKY_API_KEY=sk-...           # 你的 PackyAPI key（两个插件共用
 # 可选的端点覆盖：
 # export PACKY_OPENAI_BASE_URL=https://www.packyapi.com/v1
 # export PACKY_ANTHROPIC_BASE_URL=https://www.packyapi.com
+
+export ASTRAFLOW_API_KEY=sk-...       # Astraflow 全球端点
+# 或：export ASTRAFLOW_CN_API_KEY=sk-...  # Astraflow 中国端点
 ```
 
 ## 使用
@@ -34,6 +44,7 @@ export PACKY_API_KEY=sk-...           # 你的 PackyAPI key（两个插件共用
 hermes doctor                         # 确认两个 provider 都已加载
 hermes -z "hello" --provider packy-anthropic-messages -m claude-sonnet-4-6
 hermes -z "hello" --provider packy-openai-responses   -m gpt-5.3-codex
+hermes -z "hello" --provider astraflow -m gpt-4o-mini
 ```
 
 `provider:model` 语法和别名同样可用，例如
