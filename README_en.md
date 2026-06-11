@@ -9,6 +9,13 @@ Two model-provider plugins that route Hermes through [PackyAPI](https://www.pack
 
 Both authenticate with a single API key via the `PACKY_API_KEY` env var.
 
+Astraflow by UCloud is also available as OpenAI-compatible providers:
+
+| Provider | `api_mode` | base_url |
+| --- | --- | --- |
+| `astraflow` | `chat_completions` | `https://api-us-ca.umodelverse.ai/v1` |
+| `astraflow-cn` | `chat_completions` | `https://api.modelverse.cn/v1` |
+
 ## Install
 
 Copy (or symlink) both directories into your Hermes plugin dir so they are
@@ -27,6 +34,9 @@ export PACKY_API_KEY=sk-...           # your PackyAPI key (used by both plugins)
 # optional endpoint overrides:
 # export PACKY_OPENAI_BASE_URL=https://www.packyapi.com/v1
 # export PACKY_ANTHROPIC_BASE_URL=https://www.packyapi.com
+
+export ASTRAFLOW_API_KEY=sk-...       # Astraflow global endpoint
+# or: export ASTRAFLOW_CN_API_KEY=sk-...  # Astraflow China endpoint
 ```
 
 ## Use
@@ -35,6 +45,7 @@ export PACKY_API_KEY=sk-...           # your PackyAPI key (used by both plugins)
 hermes doctor                         # confirm both providers load
 hermes -z "hello" --provider packy-anthropic-messages -m claude-sonnet-4-6
 hermes -z "hello" --provider packy-openai-responses   -m gpt-5.3-codex
+hermes -z "hello" --provider astraflow -m gpt-4o-mini
 ```
 
 `provider:model` syntax and aliases also work, e.g.
