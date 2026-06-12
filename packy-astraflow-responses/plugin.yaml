@@ -1,0 +1,5 @@
+name: packy-astraflow-responses-provider
+kind: model-provider
+version: 1.0.0
+description: Astraflow by UCloud — OpenAI-compatible platform supporting 200+ models (global endpoint)
+author: packy
